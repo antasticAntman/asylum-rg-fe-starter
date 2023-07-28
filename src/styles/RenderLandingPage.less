@@ -41,48 +41,64 @@
     font-size: 1.2rem;
 }
 
+//graph image section beg
 
 .graphs-section {
-    border:1px solid green;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
-    height: 26vh;
+    margin-bottom: 3%;
 }
 
-.img-container{
-    border:1px solid red;
-    margin:0 auto;
-    display: grid;
-    place-items: center;
-    height:26vh
-}
-
-.img-textbox{
-    border:1px solid red;
+.bar-img-container {
+    height:155px;
     text-align: center;
-    font-size: 1.3rem;
-    font-family: 'beatrice regular';
+    font-size: 1.5rem;
+    font-family: 'acumin';
 }
 
-.statistic-img{
-    border:1px solid red;
-    width:75%;
+.bar-img{
+    height: 155px;
+    width:300px;
+    margin-bottom: 8%;
 }
+
+.pie-img-container{
+    text-align: center;
+    font-family: 'acumin';
+    font-size: 1.5rem;
+    margin-left: -0.5%;
+}
+.pie-chart{
+    height: 165px;
+    width:190px;
+    margin-bottom: 5.5%;
+    margin-left:-0.5%;
+}
+
+.time-img-container{
+    text-align: center;
+    font-family: 'acumin';
+    font-size: 1.5rem;
+    height:155px;
+}
+
+.time-line{
+    height: 155px;
+    width:300px;
+    margin-bottom: 9.5%;
+}
+
+//graph image section end
 
 .view-more-data-btn-container {
-    border:1px solid red;
     display: flex;
     height: 54px;
-    width: 11%;
-    margin: 0 auto;
+    width: 295px;
+    margin: 0 auto 10%;
+    justify-content: space-between;
     text-align: center;
-    margin-top:1.5%;
-    margin-bottom: 5%;
-}
-.download-butt{
-    border:1px solid red;
-    margin-left:6%;
+    // margin-top:1%;
+    // margin-bottom: 8%;
 }
 
 .middle-section {
@@ -108,62 +124,78 @@
 }
 
 .statistic-title{
-    font-size: 1.8rem;
-    border:1px solid red;
+    font-size: 2.3rem;
+    font-family: 'beatrice regular' ;
     display: grid;
     place-items: center;
-    margin: 6%;
-    margin-top: 7%;
+    margin-top: 10%;
+    margin-bottom: 7%;
 }
+
+//This is where the bottom section begins
 
 .bottom-section {
-    border:1px solid red;
-    height: 16vh;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.bottom-section h2 {
-    border:1px solid blue;
-    font-size: 2.2rem;
-    font-family: 'moneta';
-    margin:0 auto;
-    height:4vh;
-}
-
-.bottom-section p {
-    border:1px solid yellowgreen;
-    font-size: 1.2rem;
     text-align: center;
+    margin-top: 10%;
+}
+
+.bottom-section h1 {
+    font-size: 3.5rem;
+    font-family: 'moneta';
+    margin-bottom: 8%;
+}
+
+.info-container {
+    display:flex;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+}
+
+.bottom-headers {
+    font-size: 2rem;
+    font-family: 'moneta';
+    margin-bottom:5%;
+    height:10vh;
+}
+
+.bottom-text {
+    font-size: 1.2rem;
     font-family: 'beatrice regular' ;
+    // height:35vh;
+}
+
+.info-block h2 {
+    font-size: 3rem;
+    font-family: 'beatrice';
+}
+
+.info-block p{
+    font-size: 1.2rem;
+    font-family: 'acumin';
 }
 
 .info-block {
-    border:1px solid red;
-    width:15%;
-    height: 16vh;
-    margin:0 auto;
-    display: grid;
-    place-items: center;
+    width:420px;
+    margin-top:-5%;
+    text-align: center;
+    margin:1.5%;
 }
 
 .bottom-button-container {
-    border:1px solid red;
     display:grid;
     place-items: center;
-    margin-top: 3%;
 }
 
 .back-to-top {
-    border:1px solid blue;
     width: 8%;
     font-size: 1.2rem;
     cursor: pointer;
     color: black;
-    margin: 3% auto;
+    margin: 5% auto;
     text-align: center;
 }
+
+//This is where the bottom section ends
 
 .ant-space-align-center {
     @media (max-width: 375px) {
