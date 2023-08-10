@@ -50,7 +50,12 @@ function GraphWrapper(props) {
         break;
     }
   }
-  function updateStateWithNewData(years, view, office, stateSettingCallback) {
+  async function updateStateWithNewData(
+    years,
+    view,
+    office,
+    stateSettingCallback
+  ) {
     /*
           _                                                                             _
         |                                                                                 |
@@ -74,32 +79,67 @@ function GraphWrapper(props) {
     */
 
     if (office === 'all' || !office) {
-      axios
-        .get(process.env.REACT_APP_API_URI, {
+      const fSum = await axios.get(
+        `${process.env.REACT_APP_API_URI}/fiscalSummary`,
+        {
           // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
           params: {
             from: years[0],
             to: years[1],
           },
-        })
+        }
+      );
+      const cSum = await axios.get(
+        `${process.env.REACT_APP_API_URI}/citizenshipSummary`,
+        {
+          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
+          params: {
+            from: years[0],
+            to: years[1],
+          },
+        }
+      );
+      fSum.data['citizenshipResults'] = cSum.data;
+      console.log('fiscal', fSum);
+      console.log('citizen', cSum.data);
+      Promise.all([fSum, cSum])
         .then(result => {
-          stateSettingCallback(view, office, test_data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          stateSettingCallback(view, office, [fSum.data]); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          // stateSettingCallback(view, office, [cSum.data]); // <-- `test_data` here can be simply replaced by `result.data` in prod!
         })
         .catch(err => {
           console.error(err);
         });
     } else {
-      axios
-        .get(process.env.REACT_APP_API_URI, {
+      const fSumLocation = await axios.get(
+        `${process.env.REACT_APP_API_URI}/fiscalSummary`,
+        {
           // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
           params: {
             from: years[0],
             to: years[1],
             office: office,
           },
-        })
+        }
+      );
+      const cSumLocation = await axios.get(
+        `${process.env.REACT_APP_API_URI}/citizenshipSummary`,
+        {
+          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
+          params: {
+            from: years[0],
+            to: years[1],
+            office: office,
+          },
+        }
+      );
+      console.log('csumlocal', cSumLocation);
+      fSumLocation.data['citizenshipResults'] = cSumLocation.data;
+      console.log('fsumres', fSumLocation);
+      Promise.all([fSumLocation, cSumLocation])
         .then(result => {
-          stateSettingCallback(view, office, test_data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          console.log('results', result);
+          stateSettingCallback(view, office, [fSumLocation.data]); // <-- `test_data` here can be simply replaced by `result.data` in prod!
         })
         .catch(err => {
           console.error(err);
