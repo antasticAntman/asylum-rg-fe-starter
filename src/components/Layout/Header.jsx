@@ -3,6 +3,8 @@ import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
+import AuthNav from '../common/auth-nav';
+import AuthenticationProfile from '../common/authentication-profile';
 
 const { primary_accent_color } = colors;
 
@@ -28,6 +30,10 @@ function HeaderContent() {
         <Link to="/graphs" style={{ color: '#E2F0F7' }}>
           Graphs
         </Link>
+        <AuthenticationProfile />
+      </div>
+      <div>
+        <AuthNav />
       </div>
     </div>
   );
