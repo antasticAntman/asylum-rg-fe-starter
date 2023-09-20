@@ -35,7 +35,7 @@ function RenderLandingPage(props) {
       {/* <div className="graphs-section"> */}
 
       <div className="graphs-section">
-        <div className="bar-img-container">
+        <div className="bar-img-container img-section">
           {' '}
           {/*Bar graph section */}
           <img
@@ -46,7 +46,7 @@ function RenderLandingPage(props) {
           <p>Search Grant Rates By Office</p>
         </div>
 
-        <div className="pie-img-container">
+        <div className="pie-img-container img-section">
           {' '}
           {/* Pie graph section */}
           <img
@@ -57,7 +57,7 @@ function RenderLandingPage(props) {
           <p>Search Grant Rates By Nationality</p>
         </div>
 
-        <div className="time-img-container">
+        <div className="time-img-container img-section">
           {' '}
           {/* Line graph Section */}
           <img

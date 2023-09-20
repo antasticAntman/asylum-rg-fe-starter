@@ -6,8 +6,12 @@ function ProfileContainer() {
   return (
     <div
       style={{
-        margin: '270px',
+        // marginTop: '270px',
+        // marginLeft: '270px',
+        // marginRight: '270px',
+        margin: '270px 270px 0px 270px',
         position: 'sticky',
+        height: '100vh',
       }}
     >
       <Profile />
